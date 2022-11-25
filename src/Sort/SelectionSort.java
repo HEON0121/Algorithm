@@ -4,7 +4,7 @@ public class SelectionSort {
 
     public static void main(String[] args) {
 
-
+        // 수를 비교해서 가장 작은 수를 계속 앞으로 보내는 선택정렬
         // ex) 10 + 9 + 8 + 7 + ... + 1
         // N * (N+1)/2
         // O(N*N)
