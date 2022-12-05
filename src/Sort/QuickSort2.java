@@ -40,7 +40,7 @@ public class QuickSort2 {
         System.out.println();
     }
     public static void main(String[] args) {
-        int []array = {10,2,5,4,7,8,48,55,76,44,9,1,6,3,11};
+        int []array = {10,10,2,5,4,7,8,48,55,76,44,9,1,6,3,11};
         quickSort(array);
         printArray(array);
     }
