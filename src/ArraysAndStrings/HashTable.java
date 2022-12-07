@@ -4,8 +4,8 @@ import java.util.LinkedList;
 
 public class HashTable {
     // f(key) -> HashCode -> Index -> Value
-    // 검색 시간(O(1) -> O(n)) 이 빠름
-    // collision(충돌)을 피하도록 알고리즘 구성하기
+    // 검색 시간(O(1)) 이 빠름 but 한 키에 너무 여러값이 들어가면 이렇게 O(1) -> O(n)
+    // 따라서 collision(충돌)을 피하도록 알고리즘 구성하기
     class Node {
         String key;
         String value;
