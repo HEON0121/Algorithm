@@ -40,14 +40,35 @@ public class LinkedList {
         System.out.println(n.data);
     }
 
+    // remove 중복
+    void removeDups() {
+        Node n = header;
+        while(n!=null && n.next != null) {
+            Node runner = n;
+            while (runner.next != null) {
+                if(n.data == runner.next.data) {
+                    runner.next = runner.next.next;
+                }else {
+                    runner = runner.next;
+                }
+            }
+            n = n.next;
+        }
+    }
     public static void main(String[] args){
         LinkedList list = new LinkedList();
         list.append(1);
         list.append(3);
         list.append(5);
         list.append(7);
+        list.append(1);
+        list.append(3);
+        list.append(5);
+        list.append(7);
         list.retrieve();
-        list.delete(7);
+//        list.delete(7);
+//        list.retrieve();
+        list.removeDups();
         list.retrieve();
     }
 }
