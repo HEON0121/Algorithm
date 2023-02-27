@@ -8,33 +8,7 @@ import java.io.InputStreamReader;
 import java.util.*;
 
 public class Main {
-    public static void quickSort(int[]array, int start, int end){
-        if(start >= end){
-            return;
-        }
-        int key = start;
-        int i = start +1, j = end, temp;
 
-        while(i <= j) {
-            while(i <= end && array[i] <= array[key]){
-                i++;
-            }
-            while(j <= start && array[j] >= array[key]){
-                j--;
-            }
-            if(i > j){
-                temp = array[j];
-                array[j] = array[key];
-                array[key] = temp;
-            } else {
-                temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;
-            }
-        }
-        quickSort(array, start, j-1);
-        quickSort(array, j+1, end);
-    }
     public static void print(int[]array) {
         int prev = 0;
         int sum = 0;
@@ -45,30 +19,47 @@ public class Main {
         // 3 => 3 + 6
         // 4 => 4 + 9
         for(int i = 0; i < array.length; i++){
-            sum += array[i]+prev;
-            prev += array[i];
+            while(array[i]-- > 0) {
+                sum += (i + prev);
+                prev += i;
+            }
         }
         System.out.print(sum);
     }
     public static void main(String[] args) throws IOException {
-//        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 //        String str = br.readLine();
-//        StringTokenizer st = new StringTokenizer(str);
-       Scanner sc = new Scanner(System.in);
-       int N = sc.nextInt();
-       int P[]=  new int[N];
-       for(int i = 0 ; i < N; i++){
-           P[i]=sc.nextInt();
-       }
-       // 오름차순 정렬
-        //quickSort(P,P[0],P[N-1]);
+        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+        int N = Integer.parseInt(st.nextToken());//Integer.parseInt(br.readLine());
+        int K = Integer.parseInt(st.nextToken());
+        int[]coins = new int[N];
 
-        Arrays.sort(P);
-        for(int i =0; i<N; i++ ){
-            System.out.print(P[i]+" ");
+        for(int i = 0; i < N; i++){
+            coins[i] = Integer.parseInt(br.readLine());
         }
-        print(P);
 
+        int count = 0;
+        for(int i = N-1; i >= 0; i--){
+            count += K/coins[i];
+            K = K%coins[i];
+
+        }
+        System.out.print(count);
+       // StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+  //     Scanner sc = new Scanner(System.in);
+//       int N = sc.nextInt();
+       //int P[]=  new int[1001];
+//       while(N-- > 0){
+//           P[Integer.parseInt(st.nextToken())]++;
+//       }
+//       for(int i = 0; i < P.length; i++){
+//           System.out.println("P["+i+"] : "+P[i]);
+//       }
+       // 오름차순 정렬
+        // 계수 정렬로 해보자..
+        //print(P);
+
+        //int[]arr = new int[N];
 
 
 
