@@ -2,6 +2,7 @@ package Queue;
 
 
 import java.util.EmptyStackException;
+import java.util.NoSuchElementException;
 
 class Queue<T> {
     class Node<T>{
@@ -29,7 +30,7 @@ class Queue<T> {
 
     public T remove(){
         if (first == null) {
-            throw new EmptyStackException();
+            throw new NoSuchElementException();
         }
         T data = first.data;
         first = first.next;
@@ -41,7 +42,7 @@ class Queue<T> {
 
     public T peek(){
         if (first == null) {
-            throw new EmptyStackException();
+            throw new NoSuchElementException();
 
         }
         return first.data;

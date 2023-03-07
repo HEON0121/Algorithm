@@ -64,6 +64,7 @@ public class Example {
         int target = X;
         int rightIndex = UpperBound(arr, target);
         int leftIndex = LowerBound(arr, target);
+        // 중복된 요소 개수 출력
         int result = rightIndex-leftIndex;
         System.out.print(result);
     }

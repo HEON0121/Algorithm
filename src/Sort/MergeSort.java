@@ -6,7 +6,8 @@ public class MergeSort {
     // O(n * log n)
     // 별도로 저장 공간이 없을 시 퀵 정렬
     private static void mergeSort(int[] arr) {
-
+        int[]tmp = new int[arr.length];
+        mergeSort(arr, tmp, 0, arr.length-1);
     }
     private static void mergeSort(int[] arr, int[]tmp, int start, int end) {
         if(start < end) {
@@ -38,8 +39,18 @@ public class MergeSort {
             arr[index + i] = tmp[part1 + i];
         }
     }
-    public static void main(String[] args) {
+    private static void printArr(int arr[]){
+        for(int i = 0; i < arr.length; i++){
+            System.out.print(arr[i]+" ");
 
+        }
+        System.out.println("");
+    }
+    public static void main(String[] args) {
+        int arr[] = {8,4,3,9,0,2,1,7,5,6};
+        printArr(arr);
+        mergeSort(arr);
+        printArr(arr);
     }
 
 }
